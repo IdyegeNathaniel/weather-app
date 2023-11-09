@@ -29,8 +29,8 @@ const Home = () => {
     const location = document.getElementsByClassName("weather_location");
 
     humidity[0].innerHTML = data.main.humidity + "%";
-    wind[0].innerHTML = data.wind.speed + "Km/h";
-    temperature[0].innerHTML = data.main.temp + "°c";
+    wind[0].innerHTML = Math.floor(data.wind.speed) + "Km/h";
+    temperature[0].innerHTML = Math.floor(data.main.temp) + "°c";
     location[0].innerHTML = data.name;
 
     if (data.weather[0].icon === "01d" || data.weather[0].icon === "01n") {
@@ -40,39 +40,32 @@ const Home = () => {
       data.weather[0].icon === "02n"
     ) {
       setWicon(cloud_icon);
-    }
-    }
-    else if (
+    }else if (
       data.weather[0].icon === "03d" ||
       data.weather[0].icon === "03n"
     ) {
       setWicon(drizzle_icon);
-    }
     } else if (
       data.weather[0].icon === "04d" ||
       data.weather[0].icon === "04n"
     ) {
       setWicon(drizzle_icon);
-    }
     } else if (
       data.weather[0].icon === "09d" ||
       data.weather[0].icon === "09n"
     ) {
       setWicon(rain_icon);
-    }
     } else if (
       data.weather[0].icon === "10d" ||
       data.weather[0].icon === "10n"
     ) {
       setWicon(rain_icon);
-    }
     } else if (
       data.weather[0].icon === "13d" ||
       data.weather[0].icon === "13n"
     ) {
       setWicon(snow_icon);
-    }
-    else(
+    }else(
       setWicon(clear_icon)
     )
   };
